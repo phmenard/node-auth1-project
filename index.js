@@ -16,7 +16,7 @@ server.use(express.json())
 server.use(session({
 	resave: false,
 	saveUninitialized: false,
-	secret: "hello world",
+	secret: process.env.SESSION_KEY || "hello world",
 	store: new KnexSessionStore({
 		knex: db, // configured instance of knex
 		createtable: true, // if the table does not exist, it will create it automatically
